@@ -21,10 +21,8 @@ export const SECTION_BACKDROP = {
   position: 'relative' as const,
   isolation: 'isolate' as const,
   overflow: 'hidden' as const,
-  scrollSnapAlign: 'start' as const,
-  scrollSnapStop: 'always' as const,
   borderTop: `1px solid rgba(255,255,255,0.05)`,
-  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.015), inset 0 120px 180px rgba(255,255,255,0.015), inset 0 -140px 220px rgba(0,0,0,0.24)',
+  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.015), inset 0 60px 100px rgba(255,255,255,0.012), inset 0 -90px 140px rgba(0,0,0,0.2)',
 } as const
 
 export const SECTION_FADE = {

@@ -35,6 +35,8 @@ type LeadPayload = {
   'Qual é o seu regime tributário atual?': string
 }
 
+const DEFAULT_LEAD_WEBHOOK_URL = 'https://n8n.srv1095468.hstgr.cloud/webhook/Tributario'
+
 // Formata o telefone em tempo real para orientar melhor o preenchimento.
 function formatPhone(value: string): string {
   const nums = value.replace(/\D/g, '').slice(0, 11)
@@ -60,7 +62,7 @@ function getLeadEntryDate(date = new Date()): string {
 // Centraliza a URL do webhook do n8n para a integracao ficar configuravel por ambiente.
 function getLeadWebhookUrl(): string {
   const env = (import.meta as ImportMeta & { env?: Record<string, string | undefined> }).env
-  return env?.VITE_LEAD_WEBHOOK_URL?.trim() ?? ''
+  return env?.VITE_LEAD_WEBHOOK_URL?.trim() || DEFAULT_LEAD_WEBHOOK_URL
 }
 
 // Mantem o payload alinhado com os nomes exatos esperados na automacao e na planilha.
@@ -102,10 +104,6 @@ export function FormSection() {
 
     try {
       const webhookUrl = getLeadWebhookUrl()
-
-      if (!webhookUrl) {
-        throw new Error('Configure VITE_LEAD_WEBHOOK_URL para ativar o envio dos leads.')
-      }
 
       const response = await fetch(webhookUrl, {
         method: 'POST',
@@ -364,6 +362,9 @@ export function FormSection() {
                         required: 'WhatsApp é obrigatório',
                         minLength: { value: 14, message: 'Número incompleto' },
                       })}
+                      type="tel"
+                      inputMode="numeric"
+                      autoComplete="tel-national"
                       placeholder="(99) 9 9999-9999"
                       style={inputStyle(!!errors.whatsapp)}
                       onChange={(e) => {
@@ -396,6 +397,9 @@ export function FormSection() {
                         required: 'Confirmação é obrigatória',
                         validate: (value) => value === whatsapp || 'Os números de WhatsApp não coincidem',
                       })}
+                      type="tel"
+                      inputMode="numeric"
+                      autoComplete="tel-national"
                       placeholder="(99) 9 9999-9999"
                       style={inputStyle(!!errors.whatsappConfirm)}
                       onChange={(e) => {

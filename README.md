@@ -130,31 +130,6 @@ As secoes abaixo do hero compartilham um backdrop reutilizavel definido em [src/
 - Lucide React
 - React Hook Form
 
-## Requisitos
-
-- Node.js 18 ou superior
-- npm 9 ou superior
-
-## Como executar localmente
-
-### 1. Instalar dependencias
-
-```bash
-npm install
-```
-
-### 2. Rodar o ambiente de desenvolvimento
-
-```bash
-npm run dev
-```
-
-### 3. Gerar build de producao
-
-```bash
-npm run build
-```
-
 ## Scripts disponiveis
 
 - `npm run dev`: inicia o servidor de desenvolvimento com Vite
@@ -273,35 +248,6 @@ return [
   }
 ];
 ```
-
-## Pontos de manutencao rapida
-
-### Alterar identidade visual
-
-Edite:
-
-- [src/app/design.ts](src/app/design.ts)
-- [src/app/sectionBackground.ts](src/app/sectionBackground.ts)
-- [src/styles/index.css](src/styles/index.css)
-
-### Alterar textos da landing
-
-Edite diretamente os componentes da pasta:
-
-- [src/app/components](src/app/components)
-
-### Alterar fluxo da pagina de obrigado
-
-Edite:
-
-- [src/app/ThankYouPage.tsx](src/app/ThankYouPage.tsx)
-
-### Alterar redirecionamento apos envio do formulario
-
-Edite:
-
-- [src/app/components/FormSection.tsx](src/app/components/FormSection.tsx)
-- [.env.example](.env.example)
 
 ## Responsividade
 

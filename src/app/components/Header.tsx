@@ -27,8 +27,8 @@ export function Header() {
           : 'linear-gradient(180deg, rgba(33,44,56,0.22), rgba(33,44,56,0.12))',
         borderBottom: `1px solid ${scrolled ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.04)'}`,
         transition: 'all 0.28s ease',
-        backdropFilter: scrolled ? 'blur(18px) saturate(140%)' : 'blur(8px) saturate(120%)',
-        boxShadow: scrolled ? '0 10px 28px rgba(0,0,0,0.14)' : 'none',
+        backdropFilter: scrolled ? 'blur(12px) saturate(128%)' : 'blur(6px) saturate(112%)',
+        boxShadow: scrolled ? '0 8px 20px rgba(0,0,0,0.12)' : 'none',
       }}
     >
       <div style={{ maxWidth: THEME.maxWidth, margin: '0 auto', padding: `0 ${THEME.pagePadding}` }}>

@@ -12,18 +12,6 @@
   to { transform: rotate(360deg); }
 }
 
-@keyframes lpSectionLinesDrift {
-  0% { background-position: left 56%, right 44%; transform: scale(1); }
-  50% { background-position: left 54%, right 46%; transform: scale(1.008); }
-  100% { background-position: left 58%, right 42%; transform: scale(1.004); }
-}
-
-@keyframes lpSectionSweep {
-  0% { transform: translate3d(-8%, 0, 0) skewX(-18deg); opacity: 0.03; }
-  50% { opacity: 0.08; }
-  100% { transform: translate3d(8%, 0, 0) skewX(-18deg); opacity: 0.04; }
-}
-
 .lp-section-backdrop::before,
 .lp-section-backdrop::after {
   content: '';
@@ -35,21 +23,30 @@
 .lp-section-backdrop::before {
   inset: 0;
   z-index: 0;
-  opacity: 0.48;
+  opacity: 0.3;
   background-image: url('../app/section-lines-left.svg'), url('../app/section-lines.svg');
   background-repeat: no-repeat, no-repeat;
   background-position: left 56%, right 44%;
   background-size: 34% auto, 42% auto;
-  filter: drop-shadow(0 0 10px rgba(185,255,0,0.1));
-  animation: lpSectionLinesDrift 28s ease-in-out infinite alternate;
+  filter: none;
 }
 
 .lp-section-backdrop::after {
-  inset: -8% -18%;
+  inset: -2% -8%;
   z-index: 0;
-  mix-blend-mode: screen;
+  opacity: 0.42;
   background:
-    linear-gradient(115deg, transparent 24%, rgba(255,255,255,0.015) 43%, rgba(185,255,0,0.045) 50%, transparent 74%),
-    linear-gradient(245deg, transparent 26%, rgba(255,255,255,0.012) 45%, rgba(94,154,255,0.035) 51%, transparent 76%);
-  animation: lpSectionSweep 26s ease-in-out infinite alternate;
+    linear-gradient(115deg, transparent 28%, rgba(255,255,255,0.01) 44%, rgba(185,255,0,0.028) 50%, transparent 72%),
+    linear-gradient(245deg, transparent 28%, rgba(255,255,255,0.008) 46%, rgba(94,154,255,0.022) 52%, transparent 74%);
+}
+
+@media (max-width: 767px) {
+  .lp-section-backdrop::before {
+    opacity: 0.2;
+    background-size: 44% auto, 52% auto;
+  }
+
+  .lp-section-backdrop::after {
+    display: none;
+  }
 }

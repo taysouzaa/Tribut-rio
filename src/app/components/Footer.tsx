@@ -10,8 +10,8 @@ export function Footer() {
         position: 'relative',
         background: 'linear-gradient(180deg, rgba(33,44,56,0.58), rgba(33,44,56,0.44))',
         borderTop: '1px solid rgba(255,255,255,0.14)',
-        backdropFilter: 'blur(20px) saturate(150%)',
-        boxShadow: '0 -10px 28px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.04)',
+        backdropFilter: 'blur(12px) saturate(128%)',
+        boxShadow: '0 -8px 18px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.04)',
         padding: '28px 24px',
       }}
     >

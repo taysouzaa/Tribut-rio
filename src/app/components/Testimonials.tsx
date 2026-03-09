@@ -222,7 +222,7 @@ function VideoTestimonialCard({
             border: 'none',
             display: 'block',
           }}
-          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+          allow="autoplay; picture-in-picture; clipboard-write; encrypted-media"
           allowFullScreen
           loading="lazy"
           title={title}
@@ -233,29 +233,10 @@ function VideoTestimonialCard({
 }
 
 export function Testimonials() {
-  // No desktop o carrossel percorre duas copias da lista para parecer infinito.
-  const items = [...testimonials, ...testimonials]
   const mobileTestimonials = testimonials.slice(0, 3)
 
   return (
     <section id="testimonials" className="lp-section-backdrop" style={{ ...SECTION_BACKDROP, padding: `${THEME.sectionPadding} 0`, overflow: 'hidden' }}>
-      <style>{`
-        /* Marquee simples em CSS para desktop. */
-        @keyframes marqueeScroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-
-        .marquee-track {
-          animation: marqueeScroll 52s linear infinite;
-          will-change: transform;
-        }
-
-        .marquee-track:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-
       <div style={{ maxWidth: THEME.maxWidth, margin: '0 auto', padding: `0 ${THEME.pagePadding}`, marginBottom: '52px', position: 'relative', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -305,7 +286,7 @@ export function Testimonials() {
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.42, delay: index * 0.08 }}
-                viewport={{ once: false, amount: 0.45 }}
+                viewport={{ once: true, amount: 0.45 }}
               >
                 <VideoTestimonialCard {...video} />
               </motion.div>
@@ -323,7 +304,7 @@ export function Testimonials() {
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.38, delay: index * 0.06 }}
-              viewport={{ once: false, amount: 0.55 }}
+              viewport={{ once: true, amount: 0.55 }}
             >
               <TestimonialCard {...item} />
             </motion.div>
@@ -331,18 +312,18 @@ export function Testimonials() {
         </div>
       </div>
 
-      {/* Desktop usa marquee continuo com fades laterais. */}
-      <div className="relative z-10 hidden md:block" style={{ position: 'relative' }}>
+      {/* Desktop usa grade estatica para reduzir custo de animacao continua. */}
+      <div className="relative z-10 hidden md:block" style={{ padding: `8px ${THEME.pagePadding} 0`, position: 'relative' }}>
         <div
           style={{
             position: 'absolute',
             left: 0,
             top: 0,
             bottom: 0,
-            width: '120px',
-            zIndex: 2,
-            background: SECTION_FADE.left,
+            width: '92px',
             pointerEvents: 'none',
+            background: SECTION_FADE.left,
+            opacity: 0.16,
           }}
         />
         <div
@@ -351,21 +332,24 @@ export function Testimonials() {
             right: 0,
             top: 0,
             bottom: 0,
-            width: '120px',
-            zIndex: 2,
-            background: SECTION_FADE.right,
+            width: '92px',
             pointerEvents: 'none',
+            background: SECTION_FADE.right,
+            opacity: 0.16,
           }}
         />
-
-        <div style={{ overflow: 'hidden', padding: '8px 0' }}>
-          <div className="marquee-track" style={{ display: 'flex', gap: '18px', width: 'fit-content' }}>
-            {items.map((item, index) => (
-              <div key={index} style={{ minWidth: '308px', maxWidth: '308px', flexShrink: 0 }}>
-                <TestimonialCard {...item} />
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-2 xl:grid-cols-3 gap-[18px]">
+          {testimonials.map((item, index) => (
+            <motion.div
+              key={item.name}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.38, delay: index * 0.04 }}
+              viewport={{ once: true, amount: 0.35 }}
+            >
+              <TestimonialCard {...item} />
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

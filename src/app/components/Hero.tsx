@@ -17,8 +17,6 @@ export function Hero() {
         position: 'relative',
         overflow: 'hidden',
         isolation: 'isolate',
-        scrollSnapAlign: 'start',
-        scrollSnapStop: 'always',
       }}
     >
       {/* Foto principal do hero. O enquadramento muda no CSS responsivo mais abaixo. */}
