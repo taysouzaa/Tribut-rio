@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'motion/react'
+import { motion } from 'motion/react'
 import { ChevronDown } from 'lucide-react'
 import { THEME } from '../design'
 import { SECTION_BACKDROP } from '../sectionBackground'
@@ -7,22 +7,22 @@ import { SECTION_BACKDROP } from '../sectionBackground'
 const faqs = [
   {
     question: 'O conteúdo está atualizado?',
-    answer: 'Sim. O curso acompanha as regras tributárias aplicáveis ao seller e foi pensado para dar clareza sobre os temas que mais impactam a operação hoje.',
+    answer: 'Sim. A aula aborda as regras tributárias aplicáveis ao seller e foi pensada para dar clareza sobre os temas que mais impactam a operação hoje.',
   },
   {
-    question: 'Posso assistir as aulas quantas vezes quiser?',
-    answer: 'Sim. As aulas são gravadas e ficam disponíveis para você revisar quantas vezes precisar, no seu ritmo.',
+    question: 'Posso assistir a aula quantas vezes quiser?',
+    answer: 'Sim. A aula é gravada e fica disponível para você revisar quantas vezes precisar, no seu ritmo.',
   },
   {
-    question: 'Vou dispensar meu contador depois do curso?',
+    question: 'Vou dispensar meu contador depois da aula?',
     answer: 'Não. A proposta é te deixar mais preparado para trabalhar em parceria com contador e jurídico, fazendo perguntas melhores e tomando decisões com mais base.',
   },
   {
-    question: 'O curso é realmente gratuito?',
+    question: 'A aula é realmente gratuita?',
     answer: 'Sim. Não há taxa de inscrição, mensalidade ou cobrança escondida. Você se cadastra e solicita o acesso gratuito.',
   },
   {
-    question: 'Para quem esse curso foi feito?',
+    question: 'Para quem essa aula foi feita?',
     answer: 'Para lojistas e empresários que vendem em marketplaces como Mercado Livre, Shopee e Amazon, tanto iniciantes quanto vendedores mais experientes.',
   },
 ]
@@ -30,9 +30,11 @@ const faqs = [
 function FaqItem({ question, answer, index }: { question: string; answer: string; index: number }) {
   // O primeiro item abre por padrao para reduzir o estado "pagina vazia".
   const [open, setOpen] = useState(index === 0)
+  const accordionTransition = { duration: 0.34, ease: [0.22, 1, 0.36, 1] as const }
 
   return (
     <motion.div
+      layout
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.36, delay: index * 0.06 }}
@@ -42,7 +44,7 @@ function FaqItem({ question, answer, index }: { question: string; answer: string
         borderRadius: THEME.radiusLg,
         border: `1px solid ${open ? 'rgba(185,255,0,0.22)' : THEME.border}`,
         overflow: 'hidden',
-        transition: 'all 0.22s ease',
+        transition: 'background-color 0.24s ease, border-color 0.24s ease',
         cursor: 'pointer',
       }}
       onClick={() => setOpen(!open)}
@@ -71,26 +73,50 @@ function FaqItem({ question, answer, index }: { question: string; answer: string
           </span>
         </div>
 
-        <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.24 }} style={{ flexShrink: 0 }}>
+        <motion.div
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={accordionTransition}
+          style={{ flexShrink: 0, willChange: 'transform' }}
+        >
           <ChevronDown size={18} style={{ color: open ? THEME.accent : THEME.muted }} />
         </motion.div>
       </div>
 
-      <AnimatePresence>
-        {open && (
+      <motion.div
+        initial={false}
+        animate={{
+          gridTemplateRows: open ? '1fr' : '0fr',
+          opacity: open ? 1 : 0,
+        }}
+        transition={accordionTransition}
+        style={{
+          display: 'grid',
+          overflow: 'hidden',
+          willChange: 'grid-template-rows, opacity',
+        }}
+      >
+        <div style={{ overflow: 'hidden' }}>
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.28, ease: 'easeInOut' }}
-            style={{ overflow: 'hidden' }}
+            initial={false}
+            animate={{
+              y: open ? 0 : -8,
+              paddingTop: open ? 0 : 0,
+              paddingBottom: open ? 24 : 0,
+            }}
+            transition={accordionTransition}
+            style={{
+              paddingLeft: '44px',
+              paddingRight: '24px',
+              color: THEME.muted,
+              fontSize: '14px',
+              lineHeight: '1.85',
+              willChange: 'transform, padding',
+            }}
           >
-            <div style={{ padding: '0 24px 24px 44px', color: THEME.muted, fontSize: '14px', lineHeight: '1.85' }}>
-              {answer}
-            </div>
+            {answer}
           </motion.div>
-        )}
-      </AnimatePresence>
+        </div>
+      </motion.div>
     </motion.div>
   )
 }
@@ -119,7 +145,7 @@ export function FaqSection() {
             Ainda está com dúvidas?
           </h2>
           <p style={{ color: THEME.muted, fontSize: '17px', marginTop: '14px', lineHeight: 1.75 }}>
-            Respondemos os pontos que normalmente travam a decisão de quem quer entrar no curso com mais segurança.
+            Respondemos os pontos que normalmente travam a decisão de quem quer assistir à aula com mais segurança.
           </p>
         </motion.div>
 

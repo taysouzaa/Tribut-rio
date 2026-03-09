@@ -58,7 +58,7 @@ function TopicsCard() {
         background: 'linear-gradient(145deg, rgba(18,26,37,0.99) 0%, rgba(20,30,42,0.98) 100%)',
       }}
     >
-      {/* Lista de temas que reforca o valor percebido do curso antes do preco/CTA. */}
+      {/* Lista de temas que reforca o valor percebido da aula antes do preco/CTA. */}
       <div
         className="font-bold tracking-[-0.04em] mb-6 sm:mb-7 max-w-[11ch] text-[clamp(22px,2.7vw,34px)] leading-[0.96]"
         style={{ color: THEME.text, fontFamily: THEME.displayFont }}

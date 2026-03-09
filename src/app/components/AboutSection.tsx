@@ -7,7 +7,7 @@ import { SECTION_BACKDROP } from '../sectionBackground'
 // Credenciais resumidas que aparecem no bloco de autoridade.
 const credentials = [
   { icon: Store, label: 'Operador ativo de e-commerce' },
-  { icon: TrendingUp, label: 'Especialista em Mercado Livre' },
+  { icon: TrendingUp, label: 'Especialista em e-commerce/marketplace' },
   { icon: Lightbulb, label: 'Metodologias testadas e comprovadas' },
 ]
 
@@ -64,7 +64,7 @@ export function AboutSection() {
               >
                 <div style={{ color: THEME.text, fontWeight: 800, fontSize: '18px' }}>Gabriel Pim</div>
                 <div style={{ color: THEME.accent, fontSize: '12px', fontWeight: 700, marginTop: '3px' }}>
-                  Especialista em e-commerce e tributação
+                  Especialista em e-commerce/marketplace
                 </div>
               </div>
             </div>
@@ -92,8 +92,9 @@ export function AboutSection() {
             </h2>
 
             <p style={{ color: THEME.muted, fontSize: 'clamp(15px, 1.6vw, 16px)', lineHeight: 1.85, marginBottom: '16px', maxWidth: '56ch' }}>
-              Gabriel Pim é especialista em e-commerce com ampla experiência prática no Mercado Livre. Seu trabalho é
-              focado em metodologias que criam negócios mais lucrativos, profissionais e sustentáveis.
+              Gabriel Pim é especialista em e-commerce/marketplace, com ampla experiência prática na operação de
+              sellers. Seu trabalho é focado em metodologias que criam negócios mais lucrativos, profissionais e
+              sustentáveis.
             </p>
             <p style={{ color: THEME.muted, fontSize: 'clamp(15px, 1.6vw, 16px)', lineHeight: 1.85, marginBottom: '30px', maxWidth: '56ch' }}>
               Como operador da própria loja, conhece por dentro as dores do seller. Nas mentorias e treinamentos,

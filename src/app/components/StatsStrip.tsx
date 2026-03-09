@@ -4,7 +4,7 @@ import { THEME } from '../design'
 
 const stats = [
   { icon: Users, value: '5.000+', label: 'lojistas impactados' },
-  { icon: BookOpen, value: '21', label: 'aulas completas' },
+  { icon: BookOpen, value: '1', label: 'aula completa' },
   { icon: Star, value: 'R$0,00', label: 'investimento' },
   { icon: RefreshCw, value: 'Atual', label: 'conteúdo revisado' },
 ]

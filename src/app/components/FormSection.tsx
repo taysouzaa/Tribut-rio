@@ -301,7 +301,7 @@ export function FormSection() {
                       marginBottom: '8px',
                     }}
                   >
-                    Preencha os dados para liberar as aulas
+                    Preencha os dados para liberar a aula
                   </h3>
 
                   <p style={{ color: THEME.muted, fontSize: '13px', lineHeight: 1.65 }}>

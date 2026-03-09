@@ -3,17 +3,17 @@ import { Monitor, Clock, RotateCcw } from 'lucide-react'
 import { THEME } from '../design'
 import { SECTION_BACKDROP } from '../sectionBackground'
 
-// Cards de apoio que resumem o modelo de consumo do curso.
+// Cards de apoio que resumem o formato e consumo da aula.
 const features = [
   {
     icon: Monitor,
-    title: 'Aulas gravadas',
+    title: 'Aula gravada',
     desc: 'Assista no seu ritmo, em qualquer dispositivo, sem depender de horário fixo.',
   },
   {
     icon: Clock,
     title: 'Conteúdo objetivo',
-    desc: 'Cada aula vai direto ao ponto e conecta teoria à operação do seller.',
+    desc: 'A aula vai direto ao ponto e conecta teoria à operação do seller.',
   },
   {
     icon: RotateCcw,
@@ -43,7 +43,7 @@ export function HowItWorks() {
               letterSpacing: '-0.05em',
             }}
           >
-            Como funcionam as aulas?
+            Como funciona a aula?
           </h2>
           <p
             style={{
@@ -54,7 +54,7 @@ export function HowItWorks() {
               lineHeight: 1.75,
             }}
           >
-            Melhor do que explicar é deixar você assistir e entender o nível de clareza que existe dentro do curso.
+            Melhor do que explicar é deixar você assistir e entender o nível de clareza entregue nesta aula.
           </p>
         </motion.div>
 
