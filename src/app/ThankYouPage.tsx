@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'motion/react'
-import { ArrowLeft, CheckCircle2, Clock3, PlayCircle, ShieldCheck } from 'lucide-react'
+import { CheckCircle2, Clock3, PlayCircle, ShieldCheck } from 'lucide-react'
 import { Footer } from './components/Footer'
 import { THEME } from './design'
 import { SECTION_BACKDROP } from './sectionBackground'
@@ -132,39 +132,6 @@ export function ThankYouPage() {
               </span>
             </a>
 
-            <a
-              href="./"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                background: 'transparent',
-                color: THEME.accent,
-                border: `1px solid ${THEME.border}`,
-                borderRadius: '999px',
-                padding: '9px 14px',
-                fontWeight: 700,
-                fontSize: '13px',
-                textDecoration: 'none',
-                whiteSpace: 'nowrap',
-                flexShrink: 0,
-                transition: 'all 0.2s ease',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-1px)'
-                e.currentTarget.style.background = 'rgba(255,255,255,0.04)'
-                e.currentTarget.style.borderColor = 'rgba(185,255,0,0.24)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = ''
-                e.currentTarget.style.background = 'transparent'
-                e.currentTarget.style.borderColor = THEME.border
-              }}
-            >
-              <ArrowLeft size={14} />
-              <span className="hidden sm:inline">Voltar para a página</span>
-              <span className="sm:hidden">Voltar</span>
-            </a>
           </div>
         </div>
       </header>
