@@ -1,0 +1,30 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="lineFade" x1="560" y1="450" x2="1600" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#B9FF00" stop-opacity="0"/>
+      <stop offset="0.28" stop-color="#B9FF00" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#B9FF00" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <g opacity="0.34" stroke="url(#lineFade)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    <path d="M812 948L1288 382"/>
+    <path d="M1110 948L1376 676L1642 948"/>
+    <path d="M1182 -26L1618 418"/>
+    <path d="M1432 -42L1682 210"/>
+  </g>
+
+  <g opacity="0.92" stroke="#B9FF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M812 948L1288 382"/>
+    <path d="M1110 948L1376 676L1642 948"/>
+    <path d="M1182 -26L1618 418"/>
+    <path d="M1432 -42L1682 210"/>
+  </g>
+</svg>
